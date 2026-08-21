@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #0B0B12;
-  --color-surface: #17131F;
-  --color-bone: #F1EEF7;
-  --color-volt: #9D00FF;
-  --color-volt-bright: #C77DFF;
+  --color-void: oklch(0.105 0.035 155);
+  --color-surface: oklch(0.145 0.04 155);
+  --color-bone: oklch(0.93 0.045 92);
+  --color-volt: oklch(0.79 0.14 88);
+  --color-volt-bright: oklch(0.85 0.12 88);
+  --color-mist: oklch(0.72 0.035 150);
+  --color-border: oklch(0.33 0.055 150 / 75%);
   --color-spark: #FFC93C;
 
   --font-display: var(--font-big-shoulders);
@@ -13,8 +15,177 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-void);
   color: var(--color-bone);
   font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-volt);
+  color: var(--color-void);
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    radial-gradient(circle at 12% 22%, var(--color-volt) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 14%, var(--color-bone) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 63% 76%, var(--color-volt) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 31% 68%, var(--color-bone) 0 1px, transparent 1.5px);
+  background-size: 240px 210px, 310px 260px, 370px 330px, 280px 300px;
+  animation: star-drift 24s linear infinite;
+}
+
+.orbit-mark {
+  position: relative;
+  display: grid;
+  min-height: 330px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.orbit-core {
+  display: grid;
+  width: 86px;
+  height: 86px;
+  place-items: center;
+  border: 1px solid var(--color-volt);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--color-volt);
+  box-shadow: 0 0 45px color-mix(in oklab, var(--color-volt) 20%, transparent);
+}
+
+.orbit-ring {
+  position: absolute;
+  border: 1px solid color-mix(in oklab, var(--color-volt) 55%, transparent);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+  animation: orbit-spin 18s linear infinite;
+}
+
+.orbit-ring-one {
+  width: 235px;
+  height: 100px;
+}
+
+.orbit-ring-two {
+  width: 310px;
+  height: 150px;
+  animation-duration: 28s;
+  animation-direction: reverse;
+  opacity: 0.5;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-surface) 90%, transparent);
+  transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-volt);
+}
+
+.planet-art {
+  position: absolute;
+  right: 8%;
+  top: 16%;
+  width: 210px;
+  height: 180px;
+  opacity: 0.32;
+}
+
+.planet-body {
+  position: absolute;
+  inset: 36px 45px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  box-shadow: 0 0 50px color-mix(in oklab, var(--color-volt) 45%, transparent);
+}
+
+.planet-orbit {
+  position: absolute;
+  inset: 15px 0;
+  border: 1px solid var(--color-volt);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+.mars .planet-body {
+  background: oklch(0.58 0.11 35);
+}
+
+.earth .planet-body {
+  background: oklch(0.5 0.11 160);
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 140ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 260ms;
+}
+
+.reveal-delay-3 {
+  animation-delay: 380ms;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(336deg);
+  }
+}
+
+@keyframes star-drift {
+  to {
+    background-position: 40px 20px, -30px 50px, 25px -35px, -40px 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
