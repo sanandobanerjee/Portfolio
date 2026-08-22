@@ -2,7 +2,7 @@
 
 # Sanando Banerjee — Portfolio
 
-**Full-Stack / AI Engineer** · Building backend systems and AI-powered pipelines
+**Full-Stack / AI Engineer** · Building orbital intelligence, agentic systems, and Earth-facing defenses
 
 [![Live Site](https://img.shields.io/badge/live-portfolio--sooty--psi--17.vercel.app-9D00FF?style=for-the-badge)](https://portfolio-sooty-psi-17.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -18,20 +18,22 @@
 
 ## About This Project
 
-This is my personal portfolio — built to showcase real, shipped projects rather than tell you about them in a resume bullet. It's also a deliberate exercise in applying the same engineering discipline I bring to backend work — SOLID principles, typed data contracts, component composition — to a frontend project.
+This is my personal portfolio — built to showcase real, shipped projects rather than tell you about them in a resume bullet. It's also a deliberate exercise in applying the same engineering discipline I bring to backend work — typed data contracts, component composition, and clear separation of concerns — to a frontend project.
 
-### Design concept: "Warm-Up, Then Work"
+### Design concept: "Mission Log"
 
-The site borrows its visual language from sports stadium signage, scoreboard energy,etc. — but keeps that personality concentrated in the Hero and Footer. The sections in between (About, Projects) shift into a calmer, fast-to-scan register, because a recruiter skimming for substance shouldn't have to decode sports metaphors to find your tech stack.
+The site frames the portfolio as a space odyssey. A starfield and orbital system introduce the mission, while each project becomes a landing on a different planet: Saturn for orbital intelligence, Mars for agentic retrieval, and Earth for real-time cyber defense. The visual language keeps the atmosphere focused and the content scannable, so the metaphor adds personality without getting in the way of the work.
 
 | Token | Role |
 |---|---|
-| `void` `#0B0B12` | Page background |
-| `surface` `#17131F` | Card/panel background |
-| `bone` `#F1EEF7` | Primary text |
-| `volt` `#9D00FF` | Primary accent (Hero/Footer blocks) |
-| `volt-bright` `#C77DFF` | Secondary accent (links) |
-| `spark` `#FFC93C` | Highlight accent |
+| `void` | Deep green-black page background |
+| `surface` | Dark green-black card and panel background |
+| `bone` | Warm cream primary text |
+| `volt` | Golden yellow primary accent and orbital glow |
+| `volt-bright` | Lighter yellow secondary accent |
+| `mist` | Muted green-gray supporting text |
+| `border` | Translucent green-gray borders |
+| `spark` | Yellow highlight accent |
 
 Typography: **Big Shoulders** (display), **Inter** (body), **JetBrains Mono** (data/utility) — all self-hosted via `next/font`.
 
@@ -58,8 +60,8 @@ src/
 │   ├── page.tsx           # Composition root — wires data into sections
 │   └── globals.css         # Design tokens (single source of truth)
 ├── components/
-│   ├── ui/                 # Reusable atoms (Tag, StatBlock)
-│   └── sections/            # Page sections (Hero, About, Projects, Footer)
+│   ├── ui/                 # Reusable atoms (Tag)
+│   └── sections/            # Page sections (Header, Hero, Projects, About, Skills, Footer)
 └── lib/
     ├── types.ts              # Content interfaces (Profile, Project, AboutContent)
     └── data/                  # Actual content, typed against lib/types.ts
