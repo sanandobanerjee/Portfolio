@@ -5,9 +5,7 @@ export const profile: Profile = {
   role: "Full-Stack / AI Engineer",
   status: "Open to work",
   location: "Kolkata, India",
-  stats: [
-    { label: "Languages", value: "Python | TypeScript | Bash" },
-    { label: "Class", value: "2027" },
-    { label: "Stack", value: "Backend | AI Systems | Cloud" },
-  ],
+  tagline:
+    "I build systems for the difficult distance between an idea and its signal — from orbital intelligence to the defenses that watch over Earth.",
+  initials: "SB",
 };

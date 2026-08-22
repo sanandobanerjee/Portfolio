@@ -1,22 +1,36 @@
 import { Profile } from "@/lib/types";
-import { StatBlock } from "@/components/ui/StatBlock";
 
 interface HeroProps {
   profile: Profile;
 }
 
 export function Hero({ profile }: HeroProps) {
+  const [firstName, ...rest] = profile.name.split(" ");
+
   return (
-    <section className="bg-volt text-bone px-6 py-24 sm:py-32">
-      <div className="mx-auto max-w-4xl">
-        <p className="font-mono text-sm uppercase tracking-widest mb-4">
-          {profile.status} · {profile.location}
-        </p>
-        <h1 className="font-display font-extrabold text-6xl sm:text-8xl leading-[0.9] mb-8">
-          {profile.name}
-        </h1>
-        <p className="text-xl sm:text-2xl max-w-xl mb-10">{profile.role}</p>
-        <StatBlock stats={profile.stats} />
+    <section className="border-t border-border">
+      <div className="mx-auto grid max-w-6xl items-end gap-12 px-6 pb-20 pt-16 lg:grid-cols-[1.3fr_0.7fr] lg:px-10 lg:pb-24 lg:pt-24">
+        <div className="reveal">
+          <p className="mb-8 font-mono text-sm uppercase tracking-[0.22em] text-volt">
+            {profile.status} · {profile.location}
+          </p>
+          <h1 className="font-display max-w-4xl text-balance text-[clamp(3rem,9vw,7rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-bone">
+            {firstName}
+            <br />
+            <span className="text-mist">{rest.join(" ")}</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-mist sm:text-xl">
+            {profile.tagline}
+          </p>
+        </div>
+        <div
+          className="orbit-mark reveal reveal-delay-2"
+          aria-label="A stylized orbital system"
+        >
+          <span className="orbit-ring orbit-ring-one" />
+          <span className="orbit-ring orbit-ring-two" />
+          <span className="orbit-core">{profile.initials}</span>
+        </div>
       </div>
     </section>
   );

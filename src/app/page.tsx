@@ -1,18 +1,24 @@
+import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
-import { about } from "@/lib/data/about";
-import { profile } from "@/lib/data/profile";
-import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
-import { projects } from "@/lib/data/projects";
+import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
 import { Footer } from "@/components/sections/Footer";
+import { profile } from "@/lib/data/profile";
+import { projects } from "@/lib/data/projects";
+import { about } from "@/lib/data/about";
+import { skills } from "@/lib/data/skills";
 
 export default function Home() {
   return (
     <>
+      <div className="starfield" aria-hidden="true" />
+      <Header />
       <Hero profile={profile} />
-      <About about={about}/>
-      <Projects projects={projects}/>
-      <Footer profile={profile}/>
+      <Projects projects={projects} />
+      <About about={about} />
+      <Skills skills={skills} />
+      <Footer profile={profile} />
     </>
   );
 }
