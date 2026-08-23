@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
+import { GitHubActivity } from "@/components/sections/GitHubActivity";
 import { Footer } from "@/components/sections/Footer";
 import { profile } from "@/lib/data/profile";
 import { projects } from "@/lib/data/projects";
@@ -18,6 +19,7 @@ export default function Home() {
       <Projects projects={projects} />
       <About about={about} />
       <Skills skills={skills} />
+      <GitHubActivity/>
       <Footer profile={profile} />
     </>
   );

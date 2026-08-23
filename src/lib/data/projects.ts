@@ -23,12 +23,12 @@ export const projects: Project[] = [
     index: "02",
     planet: "MARS",
     theme: "mars",
-    name: "Mars",
+    name: "Mars-AI",
     tagline: "Multi-hop agentic retrieval and scoring",
     description:
       "A codebase-aware coding agent that traverses a repository's structure and call graph, using multi-hop retrieval to answer complex questions and assist with development tasks.",
-    detail: "LangGraph agent state machine · AST-based chunking · ChromaDB vector store",
-    stack: ["LangChain", "LangGraph", "ChromaDB", "Groq"],
+    detail: "LangGraph agent state machine · AST-based chunking · ChromaDB vector store  · RAGAS Evaluation",
+    stack: ["LangChain", "LangGraph", "ChromaDB", "Groq", "RAGAS"],
     metric: "In development · v1 in progress",
   },
   {

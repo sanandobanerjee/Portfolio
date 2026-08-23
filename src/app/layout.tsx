@@ -21,18 +21,18 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-sooty-psi-17.vercel.app"),
-  title: "Sanando Banerjee — Mission Log",
+  title: "Sanando Banerjee - Mission Log",
   description:
     "Mission log of Sanando Banerjee, a full-stack and AI engineer building orbital intelligence, agentic systems, and Earth-facing defenses.",
   openGraph: {
-    title: "Sanando Banerjee — Mission Log",
+    title: "Sanando Banerjee - Mission Log",
     description:
       "Mission log of Sanando Banerjee, a full-stack and AI engineer building orbital intelligence, agentic systems, and Earth-facing defenses.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sanando Banerjee — Mission Log",
+    title: "Sanando Banerjee - Mission Log",
     description:
       "Mission log of Sanando Banerjee, a full-stack and AI engineer building orbital intelligence, agentic systems, and Earth-facing defenses.",
   },
