@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Big_Shoulders, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const bigShoulders = Big_Shoulders({
@@ -20,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-sooty-psi-17.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: "Sanando Banerjee - Mission Log",
   description:
     "Mission log of Sanando Banerjee, a full-stack and AI engineer building orbital intelligence, agentic systems, and Earth-facing defenses.",
@@ -43,6 +44,22 @@ export const viewport: Viewport = {
   themeColor: "#0B0B12",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sanando Banerjee",
+  jobTitle: "Full-Stack / AI Engineer",
+  url: SITE_URL,
+  sameAs: [
+    "https://github.com/sanandobanerjee",
+    "https://www.linkedin.com/in/sanando-banerjee-0341b924a/",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Meghnad Saha Institute of Technology",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -54,6 +71,10 @@ export default function RootLayout({
       className={`${bigShoulders.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-void text-bone">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
