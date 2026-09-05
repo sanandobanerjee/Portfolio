@@ -6,6 +6,6 @@ export const profile: Profile = {
   status: "Open to work",
   location: "Kolkata, India",
   tagline:
-    "I build systems for the difficult distance between an idea and its signal — from orbital intelligence to the defenses that watch over Earth.",
+    "I build systems for the difficult distance between an idea and its signal - from sentiment trading to codebase agents.",
   initials: "SB",
 };

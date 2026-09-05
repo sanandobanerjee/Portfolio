@@ -7,7 +7,7 @@ export const projects: Project[] = [
     planet: "SATURN",
     theme: "saturn",
     name: "Saturn-AI",
-    tagline: "Orbital intelligence platform",
+    tagline: "Crypto intelligence platform",
     description:
       "Ingests live crypto news from 5 RSS feeds every 10 minutes and generates explainable BUY/SELL/HOLD signals with confidence scoring via Groq.",
     detail:
@@ -19,17 +19,19 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "mars",
+    slug: "mars-ai",
     index: "02",
     planet: "MARS",
     theme: "mars",
     name: "Mars-AI",
-    tagline: "Multi-hop agentic retrieval and scoring",
+    tagline: "Codebase-aware coding agent",
     description:
-      "A codebase-aware coding agent that traverses a repository's structure and call graph, using multi-hop retrieval to answer complex questions and assist with development tasks.",
-    detail: "LangGraph agent state machine · AST-based chunking · ChromaDB vector store  · RAGAS Evaluation",
-    stack: ["LangChain", "LangGraph", "ChromaDB", "Groq", "RAGAS"],
-    metric: "In development · v1 in progress",
+      "Answers questions about a Python repository by combining semantic retrieval with AST-derived call-graph traversal. An LLM decides whether retrieved context is sufficient or whether hopping the call graph (up to 3 hops) would answer more completely — citations are built from parsed metadata, never LLM-generated.",
+    detail:
+      "AST-based chunking · LangGraph decide/hop loop · non-hallucinated citations from parsed metadata",
+    stack: ["FastAPI", "LangGraph", "LangChain", "ChromaDB", "Groq"],
+    metric: "Ingests any python repo",
+    repoUrl: "https://github.com/sanandobanerjee/Mars-AI",
   },
   {
     slug: "ddos-overwatch",
