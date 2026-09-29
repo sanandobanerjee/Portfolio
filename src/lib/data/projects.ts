@@ -24,13 +24,13 @@ export const projects: Project[] = [
     planet: "MARS",
     theme: "mars",
     name: "Mars-AI",
-    tagline: "Codebase-aware coding agent",
+    tagline: "Codebase-aware coding agent using multi-hop retrieval",
     description:
-      "Answers questions about a Python repository by combining semantic retrieval with AST-derived call-graph traversal. An LLM decides whether retrieved context is sufficient or whether hopping the call graph (up to 3 hops) would answer more completely — citations are built from parsed metadata, never LLM-generated.",
+      "Answers questions about a Python repository by tracing how code is actually connected using an LLM which utilises a call graph (up to 3 hops), with citations built from parsed metadata rather than generated. Evaluated against a hand-curated 32-question suite across four structurally different codebases, not anecdotal testing.",
     detail:
-      "AST-based chunking · LangGraph decide/hop loop · non-hallucinated citations from parsed metadata",
-    stack: ["FastAPI", "LangGraph", "LangChain", "ChromaDB", "Groq"],
-    metric: "Ingests any python repo",
+      "75% multi-hop trigger accuracy · 87.5% fabrication avoidance on adversarial questions · citation precision improved via a documented dataset self-correction",
+    stack: ["FastAPI", "LangGraph", "LangChain", "ChromaDB","LLM-as-a-judge" ,"Groq"],
+    metric: "32-question eval suite",
     repoUrl: "https://github.com/sanandobanerjee/Mars-AI",
   },
   {
